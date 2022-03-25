@@ -57,7 +57,7 @@
 
         public const string LocalTime = "localtime";
 
-        public const string HeroCard = "hero card";
+        public const string HeroCard = "convert timezone date ";
         public const string ThumbnailCard = "thumbnail card";
 
         public const string O365ConnectorCardDefault = "connector card";
@@ -65,6 +65,7 @@
 
         public const string O365ConnectorCardActionableCardDefault = "timezone card";
         public const string O365ConnectorCardActionableCards = "connector card actions (.*)";
+        
 
         public const string PopUpSignIn = "signin";
 

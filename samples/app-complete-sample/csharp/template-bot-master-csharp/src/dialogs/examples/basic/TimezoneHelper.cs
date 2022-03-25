@@ -35,7 +35,7 @@ namespace Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic
             public string TimeZone;
         }
 
-        public static string ConvertTimeZone(string DateandTimeJson)
+        public static string ConvertTimeZoneJson(string DateandTimeJson)
         {
 
             var output = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Data1>(DateandTimeJson);
@@ -45,31 +45,36 @@ namespace Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic
 
             //string text = "2019-08-18T07:36:13+01:00";
             //string text = "2022-03-29T10:53:00.000Z";
-            DateTime DandT = DateTime.Parse(output.Date, culture, DateTimeStyles.None); // convert from yyyy-MM-dd'T'HH':'mm':'ss to dd/MM/yyyy HH:mm:ss tt
+            DateTime DandT = DateTime.Parse(output.Date, culture, DateTimeStyles.None); // convert from yyyy-MM-dd'T'HH':'mm':'ss to MM/dd/yyyy HH:mm:ss tt
             var timezone = output.TimeZone;
-            if (timezone == "IST")
+            return ConvertTimeZone(DandT, timezone);    
+           
+        }
+        public static string ConvertTimeZone(DateTime DandT,string timezone)
+        {
+            if (timezone == "IST" || timezone == "ist")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-                return Convert.ToString("India Standard Time "+inTime);
+                return Convert.ToString("India Standard Time " + inTime);
             }
-            else if (timezone == "PST")
+            else if (timezone == "PST" || timezone == "pst")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-               return   Convert.ToString("Pacific Standard Time "+inTime);
+                return Convert.ToString("Pacific Standard Time " + inTime);
             }
-            else if (timezone == "Israel")
+            else if (timezone == "Israel" || timezone == "israel")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-                return Convert.ToString("Israel Standard Time "+inTime);
+                return Convert.ToString("Israel Standard Time " + inTime);
             }
-            else if (timezone == "UTC")
+            else if (timezone == "UTC" || timezone == "utc")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("UTC");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-               return  Convert.ToString("UTC Time "+inTime);
+                return Convert.ToString("UTC Time " + inTime);
             }
             else
             {

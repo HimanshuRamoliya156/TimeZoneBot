@@ -3,8 +3,11 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Teams.TemplateBotCSharp.Properties;
 using Microsoft.Teams.TemplateBotCSharp.src.dialogs;
+using Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic;
 using Microsoft.Teams.TemplateBotCSharp.Utility;
+using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -69,11 +72,46 @@ namespace Microsoft.Teams.TemplateBotCSharp.Dialogs
             // Set activity text if request is from an adaptive card submit action
             activity = Middleware.AdaptiveCardSubmitActionHandler(activity);
             var command = activity.Text.Trim().ToLower();
+            command = Regex.Replace(command, @"[ ]{2,}", @" ", RegexOptions.None);
+
+            string[] commandSplited = command.Split(' ');
+            var command1 = commandSplited[0];
 
             if (command == DialogMatches.FetchRosterPayloadMatch)
             {
                 return await stepContext.BeginDialogAsync(
                         nameof(FetchRosterDialog));
+            }
+            else if(command1 == "convert")
+            {
+                // convert 1:34 IST to PST
+                // 
+                int len = commandSplited.Length;
+                
+                var timezone = commandSplited[len-1];
+                try
+                {
+                    DateTime DandT = DateTime.Now;
+
+                    DateTime today = new DateTime(
+                                DandT.Year,
+                                DandT.Month,
+                                DandT.Day,
+                                Int32.Parse(commandSplited[1].Split(':')[0]),
+                                Int32.Parse(commandSplited[1].Split(':')[1]),
+                                0,
+                                0,
+                                DandT.Kind);
+                    var converted = TimezoneHelper.ConvertTimeZone(today, timezone);
+                    await stepContext.Context.SendActivityAsync(converted);
+                    //today = today.Date.AddHours(13).AddMinutes(37).AddSeconds(0);
+                }
+                catch
+                {
+                   await stepContext.Context.SendActivityAsync("Please enter a valid format (convert HH:MM IST to target timezone)");
+                }
+                string DateAndTime = commandSplited[1] + ":00:00" + commandSplited[2];
+                return await stepContext.EndDialogAsync(null, cancellationToken);
             }
             else if (command == DialogMatches.FetchRosterApiMatch)
             {
