@@ -216,6 +216,7 @@ namespace Microsoft.Teams.TemplateBotCSharp.Bots
             O365ConnectorCardActionQuery o365CardQuery = query;
             var Text = $"Thanks, {turnContext.Activity.From.Name}\nYour input action ID:{o365CardQuery.ActionId}\nYour input body:{o365CardQuery.Body}";
             var convertedDate = TimezoneHelper.ConvertTimeZone(o365CardQuery.Body);
+
             await turnContext.SendActivityAsync(convertedDate);
         }
 

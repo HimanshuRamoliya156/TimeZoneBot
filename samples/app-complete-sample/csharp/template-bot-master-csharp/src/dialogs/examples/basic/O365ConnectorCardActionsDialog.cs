@@ -313,101 +313,101 @@ namespace Microsoft.Teams.TemplateBotCSharp.Dialogs
                 }
             };
 
-           // var temp = dateCard.Inputs[0].Value;
+            // var temp = dateCard.Inputs[0].Value;
             #endregion
 
             var section = new O365ConnectorCardSection
             {
-                Title = "**section title**",
-                Text = "section text",
-                ActivityTitle = "activity title",
-                ActivitySubtitle = "activity subtitle",
-                ActivityText = "activity text",
-                ActivityImage = "http://connectorsdemo.azurewebsites.net/images/MSC12_Oscar_002.jpg",
-                ActivityImageType = null,
-                Markdown = true,
-                Facts = new List<O365ConnectorCardFact>
-                {
-                    new O365ConnectorCardFact
-                    {
-                        Name = "Fact name 1",
-                        Value = "Fact value 1"
-                    },
-                    new O365ConnectorCardFact
-                    {
-                        Name = "Fact name 2",
-                        Value = "Fact value 2"
-                    },
-                },
-                Images = new List<O365ConnectorCardImage>
-                {
-                    new O365ConnectorCardImage
-                    {
-                        Image = "http://connectorsdemo.azurewebsites.net/images/MicrosoftSurface_024_Cafe_OH-06315_VS_R1c.jpg",
-                        Title = "image 1"
-                    },
-                    new O365ConnectorCardImage
-                    {
-                        Image = "http://connectorsdemo.azurewebsites.net/images/WIN12_Scene_01.jpg",
-                        Title = "image 2"
-                    },
-                    new O365ConnectorCardImage
-                    {
-                        Image = "http://connectorsdemo.azurewebsites.net/images/WIN12_Anthony_02.jpg",
-                        Title = "image 3"
-                    }
-                }
+                //Title = "**section title**",
+                //Text = "section text",
+                //ActivityTitle = "activity title",
+                //ActivitySubtitle = "activity subtitle",
+                //ActivityText = "activity text",
+                //ActivityImage = "http://connectorsdemo.azurewebsites.net/images/MSC12_Oscar_002.jpg",
+                //ActivityImageType = null,
+                //Markdown = true,
+                //Facts = new List<O365ConnectorCardFact>
+                //{
+                //    new O365ConnectorCardFact
+                //    {
+                //        Name = "Fact name 1",
+                //        Value = "Fact value 1"
+                //    },
+                //    new O365ConnectorCardFact
+                //    {
+                //        Name = "Fact name 2",
+                //        Value = "Fact value 2"
+                //    },
+                //},
+                //Images = new List<O365ConnectorCardImage>
+                //{
+                //    new O365ConnectorCardImage
+                //    {
+                //        Image = "http://connectorsdemo.azurewebsites.net/images/MicrosoftSurface_024_Cafe_OH-06315_VS_R1c.jpg",
+                //        Title = "image 1"
+                //    },
+                //    new O365ConnectorCardImage
+                //    {
+                //        Image = "http://connectorsdemo.azurewebsites.net/images/WIN12_Scene_01.jpg",
+                //        Title = "image 2"
+                //    },
+                //    new O365ConnectorCardImage
+                //    {
+                //        Image = "http://connectorsdemo.azurewebsites.net/images/WIN12_Anthony_02.jpg",
+                //        Title = "image 3"
+                //    }
+                //}
             };
 
             O365ConnectorCard card = new O365ConnectorCard()
             {
                 Summary = "O365 card summary",
                 ThemeColor = "#E67A9E",
-                Title = "card title",
-                Text = "card text",
-                Sections = new List<O365ConnectorCardSection> { section },
+                Title = "TimeZone Converter!",
+               
+              //  Sections = new List<O365ConnectorCardSection> { section },
                 PotentialAction = new List<O365ConnectorCardActionBase>
                 {
-                    multichoice,
-                    inputCard,
+                   // multichoice,
+                   // inputCard,
                     dateCard,
-                    new O365ConnectorCardViewAction (O365ConnectorCardViewAction.Type)
-                    {
-                        Name = "View Action",
-                        Id = null,
-                        Target = new List<string>
-                        {
-                            "http://microsoft.com"
-                        }
-                    },
-                    new O365ConnectorCardOpenUri (O365ConnectorCardOpenUri.Type)
-                    {
-                        Name = "Open Uri",
-                        Id = "open-uri",
-                        Targets = new List<O365ConnectorCardOpenUriTarget>
-                        {
-                            new O365ConnectorCardOpenUriTarget
-                            {
-                                Os = "default",
-                                Uri = "http://microsoft.com"
-                            },
-                            new O365ConnectorCardOpenUriTarget
-                            {
-                                Os = "iOS",
-                                Uri = "http://microsoft.com"
-                            },
-                            new O365ConnectorCardOpenUriTarget
-                            {
-                                Os = "android",
-                                Uri = "http://microsoft.com"
-                            },
-                            new O365ConnectorCardOpenUriTarget
-                            {
-                                Os = "windows",
-                                Uri = "http://microsoft.com"
-                            }
-                        }
-                    }
+                    //new O365ConnectorCardViewAction (O365ConnectorCardViewAction.Type)
+                    //{
+                    //    Name = "View Action",
+                    //    Id = null,
+                    //    Target = new List<string>
+                    //    {
+                    //        "http://microsoft.com"
+                    //    }
+                    //},
+                    //new O365ConnectorCardOpenUri (O365ConnectorCardOpenUri.Type)
+                    //{
+                    //    Name = "Open Uri",
+                    //    Id = "open-uri",
+                    //    Targets = new List<O365ConnectorCardOpenUriTarget>
+                    //    {
+                    //        new O365ConnectorCardOpenUriTarget
+                    //        {
+                    //            Os = "default",
+                    //            Uri = "http://microsoft.com"
+                    //        },
+                    //        new O365ConnectorCardOpenUriTarget
+                    //        {
+                    //            Os = "iOS",
+                    //            Uri = "http://microsoft.com"
+                    //        },
+                    //        new O365ConnectorCardOpenUriTarget
+                    //        {
+                    //            Os = "android",
+                    //            Uri = "http://microsoft.com"
+                    //        },
+                    //        new O365ConnectorCardOpenUriTarget
+                    //        {
+                    //            Os = "windows",
+                    //            Uri = "http://microsoft.com"
+                    //        }
+                    //    }
+                    //}
                 }
             };
 

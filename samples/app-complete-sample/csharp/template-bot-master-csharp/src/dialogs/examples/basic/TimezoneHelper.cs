@@ -51,25 +51,29 @@ namespace Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-                return Convert.ToString(inTime);
+                return Convert.ToString("India Standard Time "+inTime);
             }
             else if (timezone == "PST")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-               return   Convert.ToString(inTime);
+               return   Convert.ToString("Pacific Standard Time "+inTime);
             }
             else if (timezone == "Israel")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-                return Convert.ToString(inTime);
+                return Convert.ToString("Israel Standard Time "+inTime);
             }
-            else 
+            else if (timezone == "UTC")
             {
                 var inTimeZone = TimeZoneInfo.FindSystemTimeZoneById("UTC");
                 DateTime inTime = TimeZoneInfo.ConvertTime(DandT, TimeZoneInfo.Local, inTimeZone);
-               return  Convert.ToString(inTime);
+               return  Convert.ToString("UTC Time "+inTime);
+            }
+            else
+            {
+                return "Invalid Input";
             }
         }
     }
