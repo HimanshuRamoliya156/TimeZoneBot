@@ -6,6 +6,7 @@ using Microsoft.Bot.Schema;
 using Microsoft.Bot.Schema.Teams;
 using Microsoft.Teams.TemplateBotCSharp.Properties;
 using Microsoft.Teams.TemplateBotCSharp.src.dialogs;
+using Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic;
 using Microsoft.Teams.TemplateBotCSharp.utility;
 using Microsoft.Teams.TemplateBotCSharp.Utility;
 using System;
@@ -214,7 +215,8 @@ namespace Microsoft.Teams.TemplateBotCSharp.Bots
             // Get O365 connector card query data.
             O365ConnectorCardActionQuery o365CardQuery = query;
             var Text = $"Thanks, {turnContext.Activity.From.Name}\nYour input action ID:{o365CardQuery.ActionId}\nYour input body:{o365CardQuery.Body}";
-            await turnContext.SendActivityAsync(Text);
+            var convertedDate = TimezoneHelper.ConvertTimeZone(o365CardQuery.Body);
+            await turnContext.SendActivityAsync(convertedDate);
         }
 
         /// <summary>

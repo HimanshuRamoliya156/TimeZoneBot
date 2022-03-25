@@ -4,6 +4,7 @@ using Microsoft.Bot.Schema;
 using Microsoft.Bot.Schema.Teams;
 using Microsoft.Teams.TemplateBotCSharp.Properties;
 using Microsoft.Teams.TemplateBotCSharp.src.dialogs;
+using Microsoft.Teams.TemplateBotCSharp.src.dialogs.examples.basic;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -257,34 +258,62 @@ namespace Microsoft.Teams.TemplateBotCSharp.Dialogs
                 Inputs = new List<O365ConnectorCardInputBase>
                 {
                     // date input control, with date and time, required
-                    new O365ConnectorCardDateInput (O365ConnectorCardDateInput.Type)
+                    new O365ConnectorCardDateInput(O365ConnectorCardDateInput.Type)
                     {
-                        Id = "date-1",
+                        Id = "date1",
                         IsRequired = true,
                         Title = "date with time",
                         Value = null,
                         IncludeTime = true
                     },
-                    // date input control, only date, no time, not required
-                    new O365ConnectorCardDateInput (O365ConnectorCardDateInput.Type)
+
+                    new O365ConnectorCardMultichoiceInput(O365ConnectorCardMultichoiceInput.Type)
                     {
-                       Id = "date-2",
-                       IsRequired = false,
-                       Title = "date only",
-                       Value = null,
-                       IncludeTime = false
-                    }
+                        Id = "cardstype",
+                        IsRequired = true,
+                        Title = "Pick a Timezone",
+                        Value = null,
+                        Choices = new List<O365ConnectorCardMultichoiceInputChoice>
+                        {
+                            new O365ConnectorCardMultichoiceInputChoice("IST", "IST"),
+                            new O365ConnectorCardMultichoiceInputChoice("PST", "PST"),
+                            new O365ConnectorCardMultichoiceInputChoice("UTC", "UTC"),
+                            new O365ConnectorCardMultichoiceInputChoice("Israel", "Israel")
+                        },
+                        Style = "compact",
+                        IsMultiSelect = true
+                    },
+
+
                 },
+
                 Actions = new List<O365ConnectorCardActionBase>
                 {
-                    new O365ConnectorCardHttpPOST (O365ConnectorCardHttpPOST.Type)
+                    //new O365ConnectorCardHttpPOST (O365ConnectorCardHttpPOST.Type)
+                    //{
+                    //    Name = "Send",
+                    //    Id = "dateInput",
+                    //   // Body = @"{""date1"":""{{date1.value}}"", ""date2"":""{{cardstype.value}}""}"
+                    //    //Body = @"{""date1"":""{{date1.value}}"", ""timezone"":""{{cardstype.value}}""}"
+                    // //   string temp = @"{""date1"":""{{date1.value}}"", ""date2"":""{{cardstype.value}}""}",
+                    //    Body = TimezoneHelper.ConvertTimeZone(@"{""date1"":""{{date1.value}}"", ""date2"":""{{cardstype.value}}""}")
+                    //}
+                    new O365ConnectorCardHttpPOSTAddon (O365ConnectorCardHttpPOSTAddon.Type)
                     {
                         Name = "Send",
                         Id = "dateInput",
-                        Body = @"{""date1"":""{{date-1.value}}"", ""date2"":""{{date-2.value}}""}"
+                        Body = @"{""Date"":""{{date1.value}}"", ""TimeZone"":""{{cardstype.value}}""}",
+                        Date = @"{""Date and Time"":""{{date1.value}}""}",
+                        TimeZone = @"{""TimeZone"":""{{cardstype.value}}""}"
+
+                        //Body = @"{""date1"":""{{date1.value}}"", ""timezone"":""{{cardstype.value}}""}"
+                     //   string temp = @"{""date1"":""{{date1.value}}"", ""date2"":""{{cardstype.value}}""}",
+                        //Body = TimezoneHelper.ConvertTimeZone(@"{""date1"":""{{date1.value}}"", ""date2"":""{{cardstype.value}}""}")
                     }
                 }
             };
+
+           // var temp = dateCard.Inputs[0].Value;
             #endregion
 
             var section = new O365ConnectorCardSection

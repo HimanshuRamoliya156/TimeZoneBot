@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
   "manifestVersion": "1.7",
   "version": "1.5",
-  "id": "<<REGISTERED_BOT_ID>>",
+  "id": "824c5474-5cd7-4b4e-a589-a87eb9172c54",
   "packageName": "com.skype.teams.samples.sampleapp",
   "developer": {
     "name": "Microsoft",
@@ -15,17 +15,17 @@
     "full": "Sample-App-csharp"
   },
   "description": {
-    "short": "This is a small sample app we made for you!",
-    "full": "This is a small sample app we made for you! This app has samples of all capabilities MS Teams supports."
+    "short": "This is a small blbal sample app we made for you!",
+    "full": "This is a small abra ka dabra sample app we made for you! This app has samples of all capabilities MS Teams supports."
   },
   "icons": {
-    "outline": "bot_blue.png",
+    "outline": "outline.png",
     "color": "bot_blue.png"
   },
   "accentColor": "#3F487F",
   "staticTabs": [
     {
-      "contentUrl": "<<BASE_URI>>/public/tab/tabConfig/tab.aspx",
+      "contentUrl": "https://90da-150-129-106-249.ngrok.io/public/tab/tabConfig/tab.aspx",
       "entityId": "statictab",
       "name": "Bot Info",
       "scopes": [
@@ -36,14 +36,14 @@
   ],
   "configurableTabs": [
     {
-      "configurationUrl": "<<BASE_URI>>/public/tab/tabConfig/index.html",
+      "configurationUrl": "https://90da-150-129-106-249.ngrok.io/public/tab/tabConfig/index.html",
       "canUpdateConfiguration": false,
       "scopes": [ "team", "groupchat" ]
     }
   ],
   "bots": [
     {
-      "botId": "<<REGISTERED_BOT_ID>>",
+      "botId": "824c5474-5cd7-4b4e-a589-a87eb9172c54",
       "isNotificationOnly": false,
       "scopes": [ "team", "personal", "groupchat" ],
       "commandLists": [
@@ -58,7 +58,7 @@
             },
             {
               "title": "hello",
-              "description": "Runs the simplest hello dialog"
+              "description": "Runs the simplest hello dialog and get response"
             },
             {
               "title": "multi dialog 2",
@@ -105,7 +105,7 @@
             },
             {
               "title": "hello",
-              "description": "Runs the simplest hello dialog"
+              "description": "Runs the simplest hello dialog and get response "
             },
             {
               "title": "multi dialog 2",
@@ -146,7 +146,7 @@
   ],
   "composeExtensions": [
     {
-      "botId": "<<REGISTERED_BOT_ID>>",
+      "botId": "824c5474-5cd7-4b4e-a589-a87eb9172c54",
       "canUpdateConfiguration": true,
       "commands": [
         {

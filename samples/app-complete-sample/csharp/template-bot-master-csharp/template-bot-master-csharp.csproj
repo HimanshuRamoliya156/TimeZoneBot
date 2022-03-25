@@ -497,8 +497,10 @@
     <Compile Include="src\dialogs\examples\basic\MultiDialog.cs" />
     <Compile Include="src\dialogs\examples\basic\O365ConnectorCardActionsDialog.cs" />
     <Compile Include="src\dialogs\examples\basic\O365ConnectorCardDialog.cs" />
+    <Compile Include="src\dialogs\examples\basic\O365ConnectorCardHttpPOSTAddon.cs" />
     <Compile Include="src\dialogs\examples\basic\PopupSigninCardDialog.cs" />
     <Compile Include="src\dialogs\examples\basic\ThumbnailcardDialog.cs" />
+    <Compile Include="src\dialogs\examples\basic\TimezoneHelper.cs" />
     <Compile Include="src\dialogs\examples\moderate\BeginDialogExampleDialog.cs" />
     <Compile Include="src\dialogs\examples\moderate\ListNamesDialog.cs" />
     <Compile Include="src\dialogs\examples\moderate\PromptDialog.cs" />
