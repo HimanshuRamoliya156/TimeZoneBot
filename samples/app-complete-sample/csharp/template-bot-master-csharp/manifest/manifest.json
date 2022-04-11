@@ -11,12 +11,12 @@
     "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
   },
   "name": {
-    "short": "Sample-App-csharp",
-    "full": "Sample-App-csharp"
+    "short": "TimezoneConverterBot",
+    "full": "TimezoneConverterBot"
   },
   "description": {
-    "short": "This is a small blbal sample app we made for you!",
-    "full": "This is a small abra ka dabra sample app we made for you! This app has samples of all capabilities MS Teams supports."
+    "short": "This is a Bot for converting timezone!",
+    "full": "This bot can help you with conversion of timezone."
   },
   "icons": {
     "outline": "outline.png",
@@ -25,7 +25,7 @@
   "accentColor": "#3F487F",
   "staticTabs": [
     {
-      "contentUrl": "https://90da-150-129-106-249.ngrok.io/public/tab/tabConfig/tab.aspx",
+      "contentUrl": "https://359e-43-249-228-60.ngrok.io/public/tab/tabConfig/tab.aspx",
       "entityId": "statictab",
       "name": "Bot Info",
       "scopes": [
@@ -36,7 +36,7 @@
   ],
   "configurableTabs": [
     {
-      "configurationUrl": "https://90da-150-129-106-249.ngrok.io/public/tab/tabConfig/index.html",
+      "configurationUrl": "https://359e-43-249-228-60.ngrok.io/public/tab/tabConfig/index.html",
       "canUpdateConfiguration": false,
       "scopes": [ "team", "groupchat" ]
     }
